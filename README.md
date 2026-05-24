@@ -3,7 +3,7 @@
 A high-converting, minimalist landing page designed to showcase digital transformation services and software development projects.
 
 ##  Live Demo
-[Click here to view the website](https://YOUR-USERNAME.github.io/YOUR-REPOSITORY-NAME/)
+[Click here to view the website](https://ludan60.github.io/ludan-portfolio/)
 
 ## 🛠 Features
 - **Modern UI/UX:** Clean "High-end Minimalist" aesthetic with Bento Grid and Glassmorphism.
