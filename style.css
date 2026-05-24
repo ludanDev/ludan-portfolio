@@ -1,0 +1,148 @@
+    body {
+            background-color: #000212;
+            font-family: 'Readex Pro', sans-serif;
+            overflow-x: hidden;
+        }
+        /* شبكة الفخامة الخافتة في الخلفية */
+        .premium-grid {
+            background-size: 60px 60px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.005) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.005) 1px, transparent 1px);
+        }
+        /* دقة هندسية للحدود الرفيعة 1 بكسل */
+        .crisp-border {
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* أنيميشن الانبثاق الناعم المخصص للنصوص */
+        @keyframes customFadeUp {
+            0% { opacity: 0; transform: translateY(12px); filter: blur(4px); }
+            100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+
+        .animate-fade-up {
+            opacity: 0;
+            animation: customFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* توقيت تتابع ظهور عناصر الهيرو لضبط التسلسل البصري */
+        .del-1 { animation-delay: 150ms; }
+        .del-2 { animation-delay: 300ms; }
+        .del-3 { animation-delay: 450ms; }
+        .del-4 { animation-delay: 600ms; }
+        .del-5 { animation-delay: 750ms; }
+        .del-6 { animation-delay: 900ms; }
+
+        /* تأثير الصعود التدريجي لبقية الأقسام عند التمرير */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-element.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes shimmer {
+            100% { right: 125%; }
+        }
+        .animate-shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0; right: -50%; bottom: 0; left: 0;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.12), transparent);
+            transform: skewX(-25deg);
+            animation: shimmer 4s infinite linear;
+        }
+
+        /* تأثير البرودر المزدوج والمضيء المتفاعل للكروت */
+        .dual-border-card {
+            position: relative;
+            background: rgba(7, 7, 16, 0.4);
+            border-radius: 1.5rem;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1;
+        }
+        .dual-border-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 1.5rem;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+            z-index: -1;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .dual-border-card:hover {
+            transform: translateY(-2px);
+            background: rgba(7, 7, 16, 0.7);
+            box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.15);
+        }
+        .dual-border-card:hover::before {
+            inset: -1.5px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.5) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(37, 99, 235, 0.05) 100%);
+        }
+
+        /* كود الـ Property المتقدم للحدود الدوارة التفاعلية */
+        @property --angle {
+          syntax: '<angle>';
+          initial-value: 0deg;
+          inherits: false;
+        }
+
+        .animated-border-card {
+          position: relative;
+          padding: 1px; 
+          background: conic-gradient(from var(--angle), transparent 70%, rgba(255, 255, 255, 0.1), #475569, transparent); 
+          animation: spin 4s linear infinite;
+          overflow: hidden;
+        }
+
+        @keyframes spin {
+          from { --angle: 0deg; }
+          to { --angle: 360deg; }
+        }
+
+        .animated-border-card:hover {
+          background: conic-gradient(from var(--angle), transparent 40%, #ffffff, #475569, transparent);
+          animation-duration: 2s;
+        }
+
+        .animated-border-static {
+          position: relative;
+          padding: 1px; 
+          background: conic-gradient(from var(--angle), transparent 70%, rgba(255, 255, 255, 0.08), #475569, transparent); 
+          animation: spinStatic 5s linear infinite; 
+          overflow: hidden;
+        }
+
+        @keyframes spinStatic {
+          from { --angle: 0deg; }
+          to { --angle: 360deg; }
+        }
+
+        @keyframes chevron-wave {
+          0% { opacity: 0.1; transform: translateY(-2px); }
+          30% { opacity: 1; transform: translateY(0px); }
+          60% { opacity: 0.1; transform: translateY(2px); }
+          100% { opacity: 0.1; transform: translateY(-2px); }
+        }
+
+        .animate-chevron-pulse-1 { animation: chevron-wave 2s ease-in-out infinite; }
+        .animate-chevron-pulse-2 { animation: chevron-wave 2s ease-in-out infinite; animation-delay: 0.2s; }
+        .animate-chevron-pulse-3 { animation: chevron-wave 2s ease-in-out infinite; animation-delay: 0.4s; }
+
+/* أنيميشن دخول من اليمين */
+@keyframes slideInRight {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/* أنيميشن دخول من اليسار */
+@keyframes slideInLeft {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+.animate-slide-right { animation: slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-slide-left { animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
